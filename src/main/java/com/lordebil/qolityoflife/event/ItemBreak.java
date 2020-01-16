@@ -2,6 +2,7 @@ package com.lordebil.qolityoflife.event;
 
 import com.lordebil.qolityoflife.qol.GravelGrabber;
 import com.lordebil.qolityoflife.qol.TreeFeller;
+import com.lordebil.qolityoflife.qol.VeinMiner;
 import com.lordebil.qolityoflife.util.Constants;
 import com.lordebil.qolityoflife.util.Helper;
 import net.minecraft.block.Block;
@@ -33,5 +34,10 @@ public class ItemBreak {
 
         if (Helper.blockIsType(block, "Gravel") && !player.isCrouching())
             GravelGrabber.grabGravel(blockPos, world, block);
+
+        if (Helper.itemIsType(heldItem, Constants.PICKAXES) &&
+            Helper.blockIsType(block, Constants.ORES) &&
+            !player.isCrouching()
+        ) VeinMiner.mineVein(blockPos, world, block);
     }
 }
