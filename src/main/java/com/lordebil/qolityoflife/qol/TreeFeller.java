@@ -3,8 +3,6 @@ package com.lordebil.qolityoflife.qol;
 import com.lordebil.qolityoflife.util.Constants;
 import com.lordebil.qolityoflife.util.Helper;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -17,7 +15,7 @@ public class TreeFeller {
     private static List<BlockPos> checkedBlocks;
     private static List<BlockPos> blocksToBeDestroyed;
 
-    public static void fellTree(BlockPos pos, Item axe, PlayerEntity player, World world, Block block) {
+    public static void fellTree(BlockPos pos, World world, Block block) {
         startPos = pos;
         blocksBrokenAfterBreakEvent = 1;
         checkedBlocks = new ArrayList<>();

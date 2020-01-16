@@ -13,4 +13,8 @@ public class Helper {
     public static boolean itemIsType(Item item, List list) {
         return list.contains(item.getName().getFormattedText());
     }
+
+    public static boolean blockIsType(Block block, String string) {
+        return string.equals(block.getNameTextComponent().getFormattedText());
+    }
 }

@@ -18,8 +18,4 @@ public class Constants {
     public static final int STONE_EXP_DROP_AMMOUNT = 3;
 
     public static final boolean SHOULD_DROP_BLOCK = true;
-
-    public static final String GRAVEL_TILE_NAME = "tile.gravel";
-    public static final String SHOVEL_ITEM_NAME = "tool.shovel";
-    public static final String SHOVEL_ALTERNATIVE_ITEM_NAME = "item.shovel";
 }

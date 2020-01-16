@@ -1,5 +1,6 @@
 package com.lordebil.qolityoflife.event;
 
+import com.lordebil.qolityoflife.qol.GravelGrabber;
 import com.lordebil.qolityoflife.qol.TreeFeller;
 import com.lordebil.qolityoflife.util.Constants;
 import com.lordebil.qolityoflife.util.Helper;
@@ -28,6 +29,9 @@ public class ItemBreak {
         if (Helper.itemIsType(heldItem, Constants.AXES) &&
             Helper.blockIsType(block, Constants.LOGS) &&
             !player.isCrouching()
-        ) TreeFeller.fellTree(blockPos, heldItem, player, world, block);
+        ) TreeFeller.fellTree(blockPos, world, block);
+
+        if (Helper.blockIsType(block, "Gravel") && !player.isCrouching())
+            GravelGrabber.grabGravel(blockPos, world, block);
     }
 }
