@@ -1,9 +1,10 @@
 package com.lordebil.qolityoflife;
 
 import com.lordebil.qolityoflife.event.ItemBreak;
+import com.lordebil.qolityoflife.item.ModItems;
 import com.lordebil.qolityoflife.util.Constants;
 
-import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,8 +22,8 @@ public class Main {
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemsRegistryEvent) {
+            ModItems.init(itemsRegistryEvent);
         }
     }
 }
