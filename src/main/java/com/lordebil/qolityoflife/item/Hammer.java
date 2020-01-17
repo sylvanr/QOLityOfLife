@@ -56,8 +56,7 @@ public class Hammer extends PickaxeItem {
         Material.CLAY, Material.ORGANIC, Material.EARTH,
         Material.SAND, Material.SNOW, Material.SNOW_BLOCK
     );
-
-
+    
     public Hammer(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builder, Ingredient customRepair) {
         super(tier, attackDamageIn, attackSpeedIn, builder);
 
@@ -90,6 +89,9 @@ public class Hammer extends PickaxeItem {
         else playerDirection = player.getAdjustedHorizontalFacing();
 
         if (player.isCrouching()) return;
+
+        Block block = world.getBlockState(pos).getBlock();
+        if (!effectiveOn.contains(block) && !effectiveMaterials.contains(block)) return;
 
         for (int a = -2; a <= 2; a++) {
             for (int b = -2; b <= 2; b++) {

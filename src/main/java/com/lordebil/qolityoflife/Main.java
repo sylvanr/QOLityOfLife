@@ -23,6 +23,7 @@ public class Main {
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemsRegistryEvent) {
+            // initialize additional items with the init funciton
             ModItems.init(itemsRegistryEvent);
         }
     }

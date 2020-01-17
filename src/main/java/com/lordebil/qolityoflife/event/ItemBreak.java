@@ -21,6 +21,10 @@ public class ItemBreak {
     public static void breakItem(BlockEvent.BreakEvent event) {
         // Player who broke the block
         PlayerEntity player = event.getPlayer();
+
+        // if player crouches, they dont want special effects
+        if (player.isCrouching()) return;
+
         Item heldItem = player.getHeldItemMainhand().getItem();
         BlockPos blockPos = event.getPos();
         Block block = event.getState().getBlock();
@@ -28,16 +32,14 @@ public class ItemBreak {
 
         // Check if the user is holding an axe
         if (Helper.itemIsType(heldItem, Constants.AXES) &&
-            Helper.blockIsType(block, Constants.LOGS) &&
-            !player.isCrouching()
+            Helper.blockIsType(block, Constants.LOGS)
         ) TreeFeller.fellTree(blockPos, world, block);
 
-        if (Helper.blockIsType(block, "Gravel") && !player.isCrouching())
+        if (Helper.blockIsType(block, "Gravel"))
             GravelGrabber.grabGravel(blockPos, world, block);
 
         if (Helper.itemIsType(heldItem, Constants.PICKAXES) &&
-            Helper.blockIsType(block, Constants.ORES) &&
-            !player.isCrouching()
+            Helper.blockIsType(block, Constants.ORES)
         ) VeinMiner.mineVein(blockPos, world, block);
     }
 }
